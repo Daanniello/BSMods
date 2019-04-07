@@ -73,10 +73,11 @@ namespace BSMods
             }
         }
 
-        private void InstallButton_Click(object sender, RoutedEventArgs e)
+        private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
-
-            _BSMods.InstallMods(ModListBox);
+            InstallProgress.Content = "Installing...";
+            await _BSMods.InstallMods(ModListBox);
+            InstallProgress.Content = "Installation Completed";
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)

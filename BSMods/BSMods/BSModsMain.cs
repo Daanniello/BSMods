@@ -32,7 +32,7 @@ namespace BSMods
 
         
 
-        public async void InstallMods(ListBox checkedListBoxMods)
+        public async Task InstallMods(ListBox checkedListBoxMods)
         {
          
             var checkedItems = checkedListBoxMods.Items;
@@ -152,6 +152,8 @@ namespace BSMods
 
             //Process.Start(beatSaberPath + "\\IPA.exe");
             LaunchCommandLineApp(beatSaberPath + "\\IPA.exe", beatSaberPath);
+
+           
 
         }
 

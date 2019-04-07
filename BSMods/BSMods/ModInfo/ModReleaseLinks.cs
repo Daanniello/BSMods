@@ -30,7 +30,9 @@ namespace BSMods
 
             //Other mods
             AddOtherMod("Scoresaber", "https://cdn.discordapp.com/attachments/442697165513687062/563188455077707817/scoresaber-2.1.1-steam.zip");
-
+            AddOtherMod("EnhancedStreamChat","https://cdn.discordapp.com/attachments/555803569379606529/563513516129124372/EnhancedStreamChat.zip");
+            AddOtherMod("BeatSaverDownloader", "https://bsaber.com/mods/beatsaverdownloader-3.3.1.zip");
+            AddOtherMod("Camera+", "https://bsaber.com/mods/camera-plus-3.2.6.zip");
 
             AddModReleaseLink("BeatSaber SongBrowser", "https://github.com/halsafar/BeatSaberSongBrowser/releases");
             AddModReleaseLink("Custom Menu Text", "https://github.com/artemiswkearney/CustomMenuText/releases");
