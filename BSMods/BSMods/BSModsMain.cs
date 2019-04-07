@@ -166,8 +166,33 @@ namespace BSMods
                 WindowStyle = ProcessWindowStyle.Hidden,
                 WorkingDirectory = installDirectory,
                 Arguments = "-fn"
-            }).WaitForExit();
+            });
 
+        }
+
+        public void SetLocationPath()
+        {
+            string pathBeatSaber = @"C:\Program Files (x86)\Steam\steamapps\common\Beat Saber";
+            string pathoculus = @"C:\Program Files (x86)\Oculus\Oculus Apps\Software\hyperbolic-magnetism-beat-saber";
+
+            if (exists(pathBeatSaber))
+            {
+                beatSaberPath = pathBeatSaber;
+            }
+            else
+            {
+                beatSaberPath = pathoculus;
+            }
+                
+            bool exists(string path)
+            {
+                if (!Directory.Exists(path))
+                {
+                    return false;
+                }
+
+                return true;
+            }            
         }
 
         //public void SetBeatSaberPath(FolderBrowserDialog folderBrowserDialog)

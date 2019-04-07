@@ -33,6 +33,7 @@ namespace BSMods
 
             _BSMods = new BSModsMain();
 
+            _BSMods.SetLocationPath();
             bsLocationLabel.Content = _BSMods.beatSaberPath;
 
             LoginButton.Click += LoginButton_Click;

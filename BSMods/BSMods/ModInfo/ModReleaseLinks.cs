@@ -29,10 +29,25 @@ namespace BSMods
             AddImportantModLink("Songloader", "https://bsaber.com/mods/song-loader-6.9.5.zip");
 
             //Other mods
-            AddOtherMod("Scoresaber", "https://cdn.discordapp.com/attachments/442697165513687062/563188455077707817/scoresaber-2.1.1-steam.zip");
+            AddOtherMod("Scoresaber (Steam)", "https://cdn.discordapp.com/attachments/442697165513687062/563188455077707817/scoresaber-2.1.1-steam.zip");
+            AddOtherMod("Scoresaber (Oculus)", "https://cdn.discordapp.com/attachments/442697165513687062/563188454536773632/scoresaber-2.1.1-oculus.zip");
             AddOtherMod("EnhancedStreamChat","https://cdn.discordapp.com/attachments/555803569379606529/563513516129124372/EnhancedStreamChat.zip");
             AddOtherMod("BeatSaverDownloader", "https://bsaber.com/mods/beatsaverdownloader-3.3.1.zip");
             AddOtherMod("Camera+", "https://bsaber.com/mods/camera-plus-3.2.6.zip");
+            AddOtherMod("Custom Menu text", "https://bsaber.com/mods/custommenutext-3.0.1.zip");
+            AddOtherMod("HTTP Status", "https://bsaber.com/mods/http-status-1.4.1.zip");
+            AddOtherMod("Perfection Display", "https://bsaber.com/mods/perfectiondisplay-1.5.1.zip");
+            AddOtherMod("Counters+", "https://bsaber.com/mods/countersplus-1.5.2.zip");
+            AddOtherMod("Simplest Rainbow Mod", "https://bsaber.com/mods/simplest-rainbow-mod-1.5.1.zip");
+            AddOtherMod("SongBrowserPlugin", "https://bsaber.com/mods/songbrowserplugin-3.0.4.zip");
+            AddOtherMod("LeaderboardInSong", "https://bsaber.com/mods/leaderboardinsong-1.1.2.zip");
+            AddOtherMod("Beat Saber Tweaks", "https://bsaber.com/mods/beat-saber-tweaks-4.4.1.zip");
+            AddOtherMod("Practice Plugin", "https://bsaber.com/mods/practice-plugin-4.2.4.zip");
+            AddOtherMod("IntroSkip", "https://bsaber.com/mods/introskip-2.2.2.zip");
+            AddOtherMod("Gameplay Restrictions Plus", "https://bsaber.com/mods/gameplay-restrictions-plus-1.2.0.zip");
+            AddOtherMod("Gameplay Modifiers Plus", "https://bsaber.com/mods/gameplay-modifiers-plus-1.9.2.zip");
+            AddOtherMod("Custom Sabers", "https://github.com/Kylemc1413/CustomSaberPlugin/releases/download/2.8.3/CustomSabers2.8.3.zip");
+            AddOtherMod("Mapping Extensions", "https://bsaber.com/mods/mapping-extensions-1.1.1.zip");
 
             AddModReleaseLink("BeatSaber SongBrowser", "https://github.com/halsafar/BeatSaberSongBrowser/releases");
             AddModReleaseLink("Custom Menu Text", "https://github.com/artemiswkearney/CustomMenuText/releases");
