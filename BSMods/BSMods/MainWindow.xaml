@@ -56,14 +56,18 @@
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Grid Grid.Column="1" HorizontalAlignment="Left" Height="309" Margin="40,127,0,0" VerticalAlignment="Top" Width="387" Background="#FFEAEAEA">
-                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="0,-3,0,-61">
+            <Grid Grid.Column="1" HorizontalAlignment="Left" Height="309" Margin="20,127,0,0" VerticalAlignment="Top" Width="387" Background="#FFEAEAEA">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44*"/>
+                    <ColumnDefinition Width="85*"/>
+                </Grid.ColumnDefinitions>
+                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="0,-3,0,-63" Grid.ColumnSpan="2">
                     <Border.Effect>
                         <DropShadowEffect/>
                     </Border.Effect>
 
                 </Border>
-                <RichTextBox HorizontalAlignment="Left" Height="304" Margin="19,58,0,-38" VerticalAlignment="Top" Width="350" Background="LightGray" FontSize="18">
+                <RichTextBox HorizontalAlignment="Left" Height="286" Margin="19,58,0,-35" VerticalAlignment="Top" Width="350" Background="LightGray" FontSize="18" Grid.ColumnSpan="2">
                     <RichTextBox.Effect>
                         <DropShadowEffect/>
                     </RichTextBox.Effect>
@@ -75,28 +79,38 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Label Content="Description" HorizontalAlignment="Center" Height="53" Margin="10,0,168,0" VerticalAlignment="Top" Width="209" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
+                <Label Content="Description" HorizontalAlignment="Center" Height="53" Margin="10,0,168,0" VerticalAlignment="Top" Width="209" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="2"/>
                     </Label.Effect>
                 </Label>
             </Grid>
             <Label x:Name="InstallProgress" Content="" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Height="27" Margin="0,0,4,60" VerticalAlignment="Bottom" Width="150" FontSize="14" Foreground="#FF3E3E3E" FontStyle="Italic"/>
+            <Grid HorizontalAlignment="Left" Height="386" Margin="37,114,0,0" VerticalAlignment="Top" Width="410" Background="#FFEAEAEA">
+                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="10,10,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect/>
+                    </Border.Effect>
+                    <ListBox x:Name="ModListBox" HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="353" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="ExtraLight" Background="LightGray" Margin="13,49,0,0">
+                        <ListBox.Effect>
+                            <DropShadowEffect/>
+                        </ListBox.Effect>
+                    </ListBox>
+
+                </Border>
+                <Label Content="Mods" HorizontalAlignment="Center" Height="53" Margin="24,10,176,0" VerticalAlignment="Top" Width="210" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="2"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
 
         </Grid>
-        <Expander Header="Login" Height="484" Foreground="White" VerticalAlignment="Top" Margin="0,26,85,0" RenderTransformOrigin="0.5,0.5" FontSize="20" HorizontalContentAlignment="Stretch" FontWeight="Bold" Collapsed="Expander_Collapsed" ContextMenuOpening="Expander_ContextMenuOpening" DataContextChanged="Expander_DataContextChanged" ContextMenuClosing="Expander_ContextMenuClosing" Expanded="Expander_Expanded" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Segoe UI Light" Width="74" UseLayoutRounding="True" FlowDirection="RightToLeft">
+        <Expander Header="" Height="484" Foreground="White" VerticalAlignment="Top" Margin="0,86,31,0" RenderTransformOrigin="0.5,0.5" FontSize="20" HorizontalContentAlignment="Stretch" FontWeight="Bold" Collapsed="Expander_Collapsed" ContextMenuOpening="Expander_ContextMenuOpening" DataContextChanged="Expander_DataContextChanged" ContextMenuClosing="Expander_ContextMenuClosing" Expanded="Expander_Expanded" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Segoe UI Light" Width="27" UseLayoutRounding="True" FlowDirection="RightToLeft" Cursor="Arrow">
             <Expander.Effect>
                 <DropShadowEffect/>
             </Expander.Effect>
-            <Expander.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1" ScaleX="1"/>
-                    <SkewTransform AngleY="0" AngleX="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Expander.RenderTransform>
-            <Grid Width="auto" Height="448" Background="#FF1A1F25" Margin="0,0,-221,0" Opacity="0.9">
+            <Grid Width="auto" Height="448" Background="#FF1A1F25" Margin="0,0,-269,0" Opacity="0.9">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="427*"/>
@@ -107,12 +121,12 @@
                 </Grid.Effect>
                 <!-- LOG IN -->
                 <Grid HorizontalAlignment="Left" Height="185" Margin="10,10,0,0" VerticalAlignment="Top" Width="268" Grid.ColumnSpan="2">
-                    <TextBox x:Name="UsernameInput" Height="34" Margin="46,20,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="171" TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF9E9E9E" Background="#FF292929">
+                    <TextBox x:Name="UsernameInput" Height="34" Margin="46,20,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="171" TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF9E9E9E" Background="#FF292929" MouseDown="UsernameInput_MouseDown" PreviewMouseDown="UsernameInput_PreviewMouseDown">
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
                     </TextBox>
-                    <TextBox x:Name="PasswordInput" Height="34" Margin="46,72,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="171" TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF919191" Background="#FF292929">
+                    <TextBox x:Name="PasswordInput" Height="34" Margin="46,72,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="171" TextChanged="TextBox_TextChanged" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Foreground="#FF919191" Background="#FF292929" PreviewMouseDown="PasswordInput_PreviewMouseDown">
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -135,23 +149,5 @@
 
             </Grid>
         </Expander>
-        <Grid HorizontalAlignment="Left" Height="386" Margin="37,115,0,0" VerticalAlignment="Top" Width="410" Background="#FFEAEAEA">
-            <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="10,10,10,0">
-                <Border.Effect>
-                    <DropShadowEffect/>
-                </Border.Effect>
-                <ListBox x:Name="ModListBox" HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="353" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="ExtraLight" Background="LightGray" Margin="13,49,0,0">
-                    <ListBox.Effect>
-                        <DropShadowEffect/>
-                    </ListBox.Effect>
-                </ListBox>
-
-            </Border>
-            <Label Content="Mods" HorizontalAlignment="Center" Height="53" Margin="24,10,176,0" VerticalAlignment="Top" Width="210" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
-                <Label.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="2"/>
-                </Label.Effect>
-            </Label>
-        </Grid>
     </Grid>
 </Window>

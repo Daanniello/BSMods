@@ -39,6 +39,7 @@ namespace BSMods
             LoginButton.Click += LoginButton_Click;
             InstallButton.Click += InstallButton_Click;
 
+
             _mods = new ModReleaseLinks();
             AddModpackToListBox();
 
@@ -153,12 +154,34 @@ namespace BSMods
         private void ExitButton_MouseEnter(object sender, MouseEventArgs e)
         {
             ExitButton.Foreground = new SolidColorBrush(Colors.Red);
+
         }
 
         private void ExitButton_MouseLeave(object sender, MouseEventArgs e)
         {
             ExitButton.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFA00606"));
 
+        }
+
+        private void UsernameInput_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+   
+        }
+
+        private void UsernameInput_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UsernameInput.Text == "Username")
+            {
+                UsernameInput.Text = "";
+            }
+        }
+
+        private void PasswordInput_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (PasswordInput.Text == "Password")
+            {
+                PasswordInput.Text = "";
+            }
         }
     }
 }
