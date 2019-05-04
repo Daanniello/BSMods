@@ -14,8 +14,16 @@ namespace BSMods
     static class FetchDownload
     {
         public static async Task InsertZipFileFromDownloadLinkToTemp(string url, string destination)
-        {            
-            var downloadLink = await GetLatestReleaseLink(url);
+        {
+            var downloadLink = url;
+            try
+            {
+                downloadLink = await GetLatestReleaseLink(url);
+            }
+            catch
+            {
+                Console.WriteLine("Release link is not a github release");
+            }
 
             Directory.CreateDirectory(destination);
             using (WebClient wc = new WebClient())

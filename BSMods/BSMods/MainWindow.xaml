@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BSMods"
         mc:Ignorable="d"
-        Title="BSMods" Height="594" Width="914" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="BSMods" Height="648" Width="531.5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid >
         <Grid x:Name="Main" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Background="#FFEAEAEA" RenderTransformOrigin="0.747,0.492">
 
@@ -28,16 +28,16 @@
                         <DropShadowEffect BlurRadius="10" ShadowDepth="7"/>
                     </TextBlock.Effect>
                 </TextBlock>
-                <Image HorizontalAlignment="Left" Height="75" Margin="160,28,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1">
+                <Image HorizontalAlignment="Right" Height="75" Margin="0,28,5,0" VerticalAlignment="Top" Width="76" Grid.Column="1">
                     <Image.Source>
                         <BitmapImage DecodePixelWidth="300" UriSource="https://danskbog.pw/i/x3b91.png" />
                     </Image.Source>
                 </Image>
-                <Grid HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="914" Background="#FF1A1F25" Grid.ColumnSpan="2">
+                <Grid Height="23" VerticalAlignment="Top" Background="#FF1A1F25" Grid.ColumnSpan="2">
                     <Grid.Effect>
                         <DropShadowEffect BlurRadius="2" Opacity="0.5"/>
                     </Grid.Effect>
-                    <Label x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="876,-7,0,-5" Foreground="#FFA00606" MouseLeftButtonDown="ExitButton_MouseLeftButtonDown" Height="35" MouseEnter="ExitButton_MouseEnter" MouseLeave="ExitButton_MouseLeave" FontSize="18">
+                    <Label x:Name="ExitButton" Content="Exit" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,-6" Foreground="#FFA00606" MouseLeftButtonDown="ExitButton_MouseLeftButtonDown" Height="35" MouseEnter="ExitButton_MouseEnter" MouseLeave="ExitButton_MouseLeave" FontSize="18">
                         <Label.Effect>
                             <DropShadowEffect/>
                         </Label.Effect>
@@ -50,55 +50,43 @@
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Label x:Name="bsLocationLabel" Content="C:/dasdsad/sadasdas/dsadsa/dsd/" HorizontalAlignment="Left" Height="35" Margin="155,0,0,12" VerticalAlignment="Bottom" Width="604" FontSize="14" Foreground="#FF999999" Grid.ColumnSpan="2"/>
+            <Label x:Name="bsLocationLabel" Content="C:/dasdsad/sadasdas/dsadsa/dsd/" HorizontalAlignment="Left" Height="35" Margin="10,0,-82,52" VerticalAlignment="Bottom" Width="604" FontSize="14" Foreground="#FF999999" Grid.ColumnSpan="2"/>
             <Button  x:Name="InstallButton"  Content="Install" HorizontalAlignment="Right" Height="45" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="140" Click="Button_Click" FontWeight="Bold" FontSize="14" Foreground="#FF727272" Grid.Column="1">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Grid Grid.Column="1" HorizontalAlignment="Left" Height="309" Margin="20,127,0,0" VerticalAlignment="Top" Width="387" Background="#FFEAEAEA">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="44*"/>
-                    <ColumnDefinition Width="85*"/>
-                </Grid.ColumnDefinitions>
-                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="0,-3,0,-63" Grid.ColumnSpan="2">
+            <Label x:Name="InstallProgress" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Height="27" Margin="0,0,191,20" VerticalAlignment="Bottom" Width="150" FontSize="14" Foreground="#FF3E3E3E" FontStyle="Italic" Grid.ColumnSpan="2"/>
+            <Grid Height="386" Margin="10,114,0,0" VerticalAlignment="Top" Width="429" Background="#FFEAEAEA" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="343*"/>
+                </Grid.RowDefinitions>
+                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="-29,10,-19,-48" Grid.RowSpan="2">
                     <Border.Effect>
                         <DropShadowEffect/>
                     </Border.Effect>
+                    <TabControl HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="450" Background="#FF1A1F25" Margin="7,43,0,0">
+                        <TabControl.Effect>
+                            <DropShadowEffect/>
+                        </TabControl.Effect>
+                        <TabItem Header="All mods" Foreground="#FF1A1F25">
+                            <Grid Background="#FFE5E5E5">
+                                <ListBox x:Name="ModListBox" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="ExtraLight" Background="LightGray"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Modpack" Foreground="#FF1A1F25">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                    </TabControl>
 
                 </Border>
-                <RichTextBox HorizontalAlignment="Left" Height="286" Margin="19,58,0,-35" VerticalAlignment="Top" Width="350" Background="LightGray" FontSize="18" Grid.ColumnSpan="2">
-                    <RichTextBox.Effect>
-                        <DropShadowEffect/>
-                    </RichTextBox.Effect>
-                    <FlowDocument>
-                        <Paragraph>
-                            <Run Text="Title"/>
-                            <LineBreak/>
-                            <Run Text="This is an example description &lt;3"/>
-                        </Paragraph>
-                    </FlowDocument>
-                </RichTextBox>
-                <Label Content="Description" HorizontalAlignment="Center" Height="53" Margin="10,0,168,0" VerticalAlignment="Top" Width="209" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
+                <Label Content="Mods" Height="53" Margin="154,19,169,0" VerticalAlignment="Top" Width="106" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="2"/>
                     </Label.Effect>
                 </Label>
-            </Grid>
-            <Label x:Name="InstallProgress" Content="" HorizontalContentAlignment="Center" Grid.Column="1" HorizontalAlignment="Right" Height="27" Margin="0,0,4,60" VerticalAlignment="Bottom" Width="150" FontSize="14" Foreground="#FF3E3E3E" FontStyle="Italic"/>
-            <Grid HorizontalAlignment="Left" Height="386" Margin="37,114,0,0" VerticalAlignment="Top" Width="410" Background="#FFEAEAEA">
-                <Border CornerRadius="12,12,12,12" BorderThickness="3" Background="#FF1A1F25" Padding="4" Margin="10,10,10,0">
-                    <Border.Effect>
-                        <DropShadowEffect/>
-                    </Border.Effect>
-                    <ListBox x:Name="ModListBox" HorizontalAlignment="Left" Height="293" VerticalAlignment="Top" Width="353" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="ExtraLight" Background="LightGray" Margin="13,49,0,0">
-                        <ListBox.Effect>
-                            <DropShadowEffect/>
-                        </ListBox.Effect>
-                    </ListBox>
-
-                </Border>
-                <Label Content="Mods" HorizontalAlignment="Center" Height="53" Margin="24,10,176,0" VerticalAlignment="Top" Width="210" Foreground="White" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center">
+                <Label Content="latest versions" Height="53" Margin="323,4,-13,0" VerticalAlignment="Top" Width="119" Foreground="White" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="2" ShadowDepth="2"/>
                     </Label.Effect>
@@ -106,7 +94,7 @@
             </Grid>
 
         </Grid>
-        <Expander Header="" Height="484" Foreground="White" VerticalAlignment="Top" Margin="0,86,31,0" RenderTransformOrigin="0.5,0.5" FontSize="20" HorizontalContentAlignment="Stretch" FontWeight="Bold" Collapsed="Expander_Collapsed" ContextMenuOpening="Expander_ContextMenuOpening" DataContextChanged="Expander_DataContextChanged" ContextMenuClosing="Expander_ContextMenuClosing" Expanded="Expander_Expanded" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Segoe UI Light" Width="27" UseLayoutRounding="True" FlowDirection="RightToLeft" Cursor="Arrow">
+        <Expander Header="" Height="484" Foreground="White" VerticalAlignment="Top" Margin="0,87,29,0" RenderTransformOrigin="0.5,0.5" FontSize="20" HorizontalContentAlignment="Stretch" FontWeight="Bold" Collapsed="Expander_Collapsed" ContextMenuOpening="Expander_ContextMenuOpening" DataContextChanged="Expander_DataContextChanged" ContextMenuClosing="Expander_ContextMenuClosing" Expanded="Expander_Expanded" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Segoe UI Light" Width="27" UseLayoutRounding="True" FlowDirection="RightToLeft" Cursor="Arrow">
             <Expander.Effect>
                 <DropShadowEffect/>
             </Expander.Effect>

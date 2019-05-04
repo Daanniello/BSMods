@@ -9,6 +9,7 @@ using System.IO.Compression;
 using System.Windows.Controls;
 using System.Net;
 using System.IO;
+using System.Security;
 
 namespace BSMods
 {
@@ -28,6 +29,7 @@ namespace BSMods
             OtherMods = new ModReleaseLinks().OtherMods;
 
             Database = new DBConnection();
+            
         }
 
         
@@ -36,29 +38,61 @@ namespace BSMods
         {
          
             var checkedItems = checkedListBoxMods.Items;
-            foreach (CheckBox checkedReleaseLink in checkedItems)
+            foreach (var checkedReleaseLinkType in checkedItems)
             {
+                var checkedReleaseLink = new CheckBox();
+
+                checkedReleaseLink = checkedReleaseLinkType as CheckBox;
+                if(checkedReleaseLink == null) continue;
+
+
                 if (checkedReleaseLink.IsChecked == false) continue;
 
-                ////----------------------------------------------GithubMods mods
-                //foreach (var modRelease in gitHubModReleaseLinks)
-                //{
-                //    if (checkedReleaseLink.Content == modRelease[0])
-                //    {
-                //        await FetchDownload.InsertZipFileFromDownloadLinkToTemp(modRelease[1], beatSaberPath + "\\ZipFiles\\" + checkedReleaseLink.Content + ".zip");
+                //----------------------------------------------GithubMods mods
+                foreach (var modRelease in gitHubModReleaseLinks)
+                {
+                    var tempname = modRelease[0].Replace("[important]", "");
+                    if (checkedReleaseLink.Content.ToString() == tempname)
+                    {
+                        await FetchDownload.InsertZipFileFromDownloadLinkToTemp(modRelease[1], beatSaberPath + "\\ZipFiles\\" + checkedReleaseLink.Content + ".zip");
+                        var zipPath = "";
 
-                //        try
-                //        {
-                //            var zipPath = beatSaberPath + "\\ZipFiles\\" + checkedReleaseLink.Content + ".zip" + "\\" + checkedReleaseLink.Content + ".zip";
-                //            ExternExtensions.ExtractToDirectory(ZipFile.Open(zipPath, ZipArchiveMode.Read), beatSaberPath, true);
-                //        }
-                //        catch
-                //        {
+                        try
+                        {
+                            zipPath = beatSaberPath + "\\ZipFiles\\" + checkedReleaseLink.Content + ".zip" + "\\" + checkedReleaseLink.Content + ".zip";
+                            ExternExtensions.ExtractToDirectory(ZipFile.Open(zipPath, ZipArchiveMode.Read), beatSaberPath, true);
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                using (WebClient wc = new WebClient())
+                                {
+                                    var destinationFile = beatSaberPath.Split('\\');
 
-                //        }
+                                    if (!Directory.Exists(beatSaberPath + "\\Plugins"))
+                                    {
 
-                //    }
-                //}
+                                        Directory.CreateDirectory(beatSaberPath + "\\Plugins");
+                                    }
+
+
+                                    await wc.DownloadFileTaskAsync(
+                                        new System.Uri(zipPath),
+                                        beatSaberPath + "\\Plugins\\" + modRelease[0].Replace("[important]","") + ".dll"
+                                    );
+                                }
+                            }
+                            catch
+                            {
+                                Console.WriteLine(modRelease[0] + " Failed!");
+                                //return;
+                            }
+                        }
+
+                    }
+                }
+
                 //----------------------------------------------Important mods
                 foreach (var modRelease in ImportantMods)
                 {

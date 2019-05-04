@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,6 +43,21 @@ namespace BSMods
 
             _mods = new ModReleaseLinks();
             AddModpackToListBox();
+            if (_BSMods.beatSaberPath.ToLower().Contains("steam"))
+            {
+                var itemSteam = ModListBox.Items[0] as CheckBox;
+                var itemOculus = ModListBox.Items[1] as CheckBox;
+                itemSteam.IsChecked = true;
+                itemOculus.IsChecked = false;
+
+            }
+            else
+            {
+                var itemSteam = ModListBox.Items[0] as CheckBox;
+                var itemOculus = ModListBox.Items[1] as CheckBox;
+                itemSteam.IsChecked = false;
+                itemOculus.IsChecked = true;
+            }
 
         }
 
@@ -49,6 +65,13 @@ namespace BSMods
         {
             foreach (var mod in _mods.ImportantMods)
             {
+                if (mod[0].Contains("[title]"))
+                {
+                    var title = new Label { Content = mod[0].Replace("[title]", ""), FontStyle = FontStyles.Italic, Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString("#FF1A1F25") }, Foreground = new SolidColorBrush { Color = Colors.White } };
+                    ModListBox.Items.Add(title);
+                    continue;
+                }
+
                 var checkbox = new CheckBox()
                     {Content = mod[0], IsChecked = true, BorderThickness = new Thickness(2, 2, 2, 2)};
                 var margin = checkbox.Margin;
@@ -60,6 +83,12 @@ namespace BSMods
 
             foreach (var mod in _mods.OtherMods)
             {
+                if (mod[0].Contains("[title]"))
+                {
+                    var title = new Label { Content = mod[0].Replace("[title]", ""), FontStyle = FontStyles.Italic, Background = new SolidColorBrush { Color = (Color)ColorConverter.ConvertFromString("#FF1A1F25") }, Foreground = new SolidColorBrush { Color = Colors.White } };
+                    ModListBox.Items.Add(title);
+                    continue;
+                }
                 var checkbox = new CheckBox()
                     { Content = mod[0], IsChecked = false, BorderThickness = new Thickness(2, 2, 2, 2) };
                 var margin = checkbox.Margin;
@@ -70,10 +99,32 @@ namespace BSMods
 
             foreach (var mod in _mods.gitHubModReleaseLinks)
             {
-                //var index = ModListBox.Items.Add(new CheckBox() { Content = mod[0], IsChecked = false });
-
+                if(mod[0].Contains("[title]"))
+                {
+                    var title = new Label{Content = mod[0].Replace("[title]",""), FontStyle = FontStyles.Italic, Background = new SolidColorBrush{Color = (Color)ColorConverter.ConvertFromString("#FF1A1F25") }, Foreground = new SolidColorBrush{Color = Colors.White }};
+                    ModListBox.Items.Add(title);
+                    continue;
+                }else if (mod[0].Contains("[important]"))
+                {
+                    var checkbox1 = new CheckBox()
+                        { Content = mod[0].Replace("[important]", ""), IsChecked = true, BorderThickness = new Thickness(2, 2, 2, 2) };
+                    var margin1 = checkbox1.Margin;
+                    margin1.Top = 5;
+                    checkbox1.Margin = margin1;
+                    var index1 = ModListBox.Items.Add(checkbox1);
+                    continue;
+                }
+               
+                var checkbox = new CheckBox()
+                    { Content = mod[0], IsChecked = false, BorderThickness = new Thickness(2, 2, 2, 2) };
+                var margin = checkbox.Margin;
+                margin.Top = 5;
+                checkbox.Margin = margin;
+                var index = ModListBox.Items.Add(checkbox);
             }
         }
+
+
 
         private async void InstallButton_Click(object sender, RoutedEventArgs e)
         {
